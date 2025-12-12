@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  brain-engine:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - API_KEY=${API_KEY}
+      - OXYLABS_USERNAME=${OXYLABS_USERNAME}
+      - OXYLABS_PASSWORD=${OXYLABS_PASSWORD}
+      - DEBUG=true
+    env_file:
+      - .env
+    volumes:
+      - ./src:/app/src:ro  # Mount source for development
+    restart: unless-stopped
+
+  # Optional: Redis for caching (future)
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+volumes:
+  redis_data:
