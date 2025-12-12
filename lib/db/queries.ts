@@ -24,6 +24,8 @@ import {
   chat,
   type DBMessage,
   document,
+  flightPriceCache,
+  flightSearches,
   message,
   type Suggestion,
   stream,
@@ -588,6 +590,139 @@ export async function getStreamIdsByChatId({ chatId }: { chatId: string }) {
     throw new ChatSDKError(
       "bad_request:database",
       "Failed to get stream ids by chat id"
+    );
+  }
+}
+
+export async function logFlightSearch({
+  chatId,
+  userId,
+  origin,
+  destination,
+  departureDate,
+  returnDate,
+  passengers,
+  cabinClass,
+  bestPrice,
+  baselinePrice,
+  savingsPercent,
+  resultsCount,
+  searchTimeSeconds,
+}: {
+  chatId: string;
+  userId: string;
+  origin: string;
+  destination: string;
+  departureDate: string;
+  returnDate?: string;
+  passengers: number;
+  cabinClass: string;
+  bestPrice?: number;
+  baselinePrice?: number;
+  savingsPercent?: number;
+  resultsCount?: number;
+  searchTimeSeconds?: number;
+}) {
+  try {
+    return await db.insert(flightSearches).values({
+      chatId,
+      userId,
+      origin,
+      destination,
+      departureDate,
+      returnDate,
+      passengers,
+      cabinClass,
+      bestPrice,
+      baselinePrice,
+      savingsPercent,
+      resultsCount,
+      searchTimeSeconds,
+    });
+  } catch (_error) {
+    throw new ChatSDKError(
+      "bad_request:database",
+      "Failed to log flight search"
+    );
+  }
+}
+
+export async function getUserFlightSearches(userId: string, limit = 10) {
+  try {
+    return await db
+      .select()
+      .from(flightSearches)
+      .where(eq(flightSearches.userId, userId))
+      .orderBy(desc(flightSearches.createdAt))
+      .limit(limit);
+  } catch (_error) {
+    throw new ChatSDKError(
+      "bad_request:database",
+      "Failed to get user flight searches"
+    );
+  }
+}
+
+export async function getCachedFlightPrices(
+  origin: string,
+  destination: string,
+  departureDate: string
+) {
+  try {
+    const now = new Date();
+    return await db
+      .select()
+      .from(flightPriceCache)
+      .where(
+        and(
+          eq(flightPriceCache.origin, origin),
+          eq(flightPriceCache.destination, destination),
+          eq(flightPriceCache.departureDate, departureDate),
+          gt(flightPriceCache.expiresAt, now)
+        )
+      )
+      .limit(1);
+  } catch (_error) {
+    throw new ChatSDKError(
+      "bad_request:database",
+      "Failed to get cached flight prices"
+    );
+  }
+}
+
+export async function setCachedFlightPrices({
+  origin,
+  destination,
+  departureDate,
+  returnDate,
+  cabinClass,
+  resultsJson,
+  ttlMinutes = 15,
+}: {
+  origin: string;
+  destination: string;
+  departureDate: string;
+  returnDate?: string;
+  cabinClass: string;
+  resultsJson: unknown;
+  ttlMinutes?: number;
+}) {
+  try {
+    const expiresAt = new Date(Date.now() + ttlMinutes * 60 * 1000);
+
+    return await db.insert(flightPriceCache).values({
+      origin,
+      destination,
+      departureDate,
+      returnDate,
+      cabinClass,
+      resultsJson,
+      expiresAt,
+    });
+  } catch (_error) {
+    throw new ChatSDKError(
+      "bad_request:database",
+      "Failed to set cached flight prices"
     );
   }
 }

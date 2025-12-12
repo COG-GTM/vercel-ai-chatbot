@@ -1,11 +1,14 @@
 import type { InferSelectModel } from "drizzle-orm";
 import {
   boolean,
+  date,
   foreignKey,
+  integer,
   json,
   jsonb,
   pgTable,
   primaryKey,
+  real,
   text,
   timestamp,
   uuid,
@@ -171,3 +174,41 @@ export const stream = pgTable(
 );
 
 export type Stream = InferSelectModel<typeof stream>;
+
+export const flightSearches = pgTable("FlightSearches", {
+  id: uuid("id").primaryKey().notNull().defaultRandom(),
+  chatId: uuid("chatId")
+    .notNull()
+    .references(() => chat.id, { onDelete: "cascade" }),
+  userId: uuid("userId")
+    .notNull()
+    .references(() => user.id, { onDelete: "cascade" }),
+  origin: varchar("origin", { length: 3 }).notNull(),
+  destination: varchar("destination", { length: 3 }).notNull(),
+  departureDate: date("departureDate").notNull(),
+  returnDate: date("returnDate"),
+  passengers: integer("passengers").notNull().default(1),
+  cabinClass: varchar("cabinClass", { length: 20 }).default("economy"),
+  bestPrice: real("bestPrice"),
+  baselinePrice: real("baselinePrice"),
+  savingsPercent: real("savingsPercent"),
+  resultsCount: integer("resultsCount"),
+  searchTimeSeconds: real("searchTimeSeconds"),
+  createdAt: timestamp("createdAt").notNull().defaultNow(),
+});
+
+export type FlightSearch = InferSelectModel<typeof flightSearches>;
+
+export const flightPriceCache = pgTable("FlightPriceCache", {
+  id: uuid("id").primaryKey().notNull().defaultRandom(),
+  origin: varchar("origin", { length: 3 }).notNull(),
+  destination: varchar("destination", { length: 3 }).notNull(),
+  departureDate: date("departureDate").notNull(),
+  returnDate: date("returnDate"),
+  cabinClass: varchar("cabinClass", { length: 20 }).default("economy"),
+  resultsJson: json("resultsJson").notNull(),
+  createdAt: timestamp("createdAt").notNull().defaultNow(),
+  expiresAt: timestamp("expiresAt").notNull(),
+});
+
+export type FlightPriceCache = InferSelectModel<typeof flightPriceCache>;
