@@ -75,3 +75,4 @@ yarn-error.log*
  *.swo
 
  brain-engine/playwright-browsers/
+tsconfig.tsbuildinfo
