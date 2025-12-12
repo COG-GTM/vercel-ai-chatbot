@@ -1,11 +1,13 @@
 """Configuration management for Brain Engine."""
 
-from pydantic_settings import BaseSettings
+from pydantic_settings import BaseSettings, SettingsConfigDict
 from typing import List, Optional
 
 
 class Settings(BaseSettings):
     """Application settings loaded from environment variables."""
+    
+    model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8")
     
     # API Configuration
     api_key: str
@@ -30,10 +32,6 @@ class Settings(BaseSettings):
     # Browser Configuration
     headless: bool = True
     browser_timeout: int = 30000
-    
-    class Config:
-        env_file = ".env"
-        env_file_encoding = "utf-8"
 
 
 settings = Settings()

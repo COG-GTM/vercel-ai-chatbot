@@ -1,8 +1,8 @@
 """Pydantic models for flight data."""
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, ConfigDict
 from typing import List, Optional
-from datetime import datetime
+from datetime import datetime, timezone
 from enum import Enum
 
 
@@ -55,8 +55,7 @@ class FlightSearchRequest(BaseModel):
         description="Cabin class preference"
     )
     
-    class Config:
-        populate_by_name = True
+    model_config = ConfigDict(populate_by_name=True)
 
 
 class FlightSegment(BaseModel):
@@ -123,8 +122,8 @@ class FlightSearchResponse(BaseModel):
     cache_expires_at: Optional[datetime] = None
     error: Optional[str] = None
     
-    class Config:
-        json_schema_extra = {
+    model_config = ConfigDict(
+        json_schema_extra={
             "example": {
                 "success": True,
                 "flights": [
@@ -152,6 +151,7 @@ class FlightSearchResponse(BaseModel):
                 "cached": False
             }
         }
+    )
 
 
 class HealthResponse(BaseModel):
@@ -160,4 +160,4 @@ class HealthResponse(BaseModel):
     status: str = "healthy"
     service: str = "brain-engine"
     version: str = "1.0.0"
-    timestamp: datetime = Field(default_factory=datetime.utcnow)
+    timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
