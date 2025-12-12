@@ -1,0 +1,11 @@
+{
+  "git": {
+    "deploymentEnabled": {
+      "brain-engine/**": false
+    }
+  },
+  "ignoreCommand": "git diff --quiet HEAD^ HEAD -- . ':!brain-engine'",
+  "buildCommand": "pnpm build",
+  "installCommand": "pnpm install",
+  "framework": "nextjs"
+}
