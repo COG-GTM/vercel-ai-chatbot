@@ -41,6 +41,8 @@ Brain Engine endpoints:
 | GET | `/health` | none | Health check |
 | POST | `/api/search` | `Bearer API_KEY` | Multi-country flight search |
 
+Swagger UI at `/docs` is only served when `DEBUG=true`.
+
 ## Data model
 
 Upstream Chat SDK tables: `User`, `Chat`, `Message_v2`, `Vote_v2`, `Document`, `Suggestion`, `Stream` (plus the deprecated `Message` and `Vote`).

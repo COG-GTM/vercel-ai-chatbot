@@ -93,7 +93,7 @@ pnpm db:migrate # create or update the database schema
 pnpm dev
 ```
 
-The app runs on [localhost:3000](http://localhost:3000). Without the Brain Engine variables, chat works and `searchFlights` returns a "not configured" error to the model.
+The app runs on [localhost:3000](http://localhost:3000). Guest sign-in, registration and login work with only `AUTH_SECRET` and `POSTGRES_URL`; sending a message also needs AI Gateway access (`AI_GATEWAY_API_KEY` outside Vercel), otherwise `/api/chat` returns 503. Without the Brain Engine variables, chat works and `searchFlights` returns a "not configured" error to the model.
 
 To run flight searches locally, start the Brain Engine in another terminal (it needs Oxylabs proxy credentials):
 
