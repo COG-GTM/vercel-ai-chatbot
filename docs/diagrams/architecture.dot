@@ -1,0 +1,73 @@
+// Ryoko (vercel-ai-chatbot) system architecture.
+// Render: dot -Tpng -Gdpi=150 architecture.dot -o architecture.png && dot -Tsvg architecture.dot -o architecture.svg
+// Dashed red edges/nodes = code that exists on main but is not wired in.
+digraph ryoko {
+  graph [rankdir=TB, fontname="DejaVu Sans", fontsize=20, nodesep=0.3, ranksep=0.7,
+         label="Ryoko (vercel-ai-chatbot) architecture, main branch", labelloc=t, pad=0.3];
+  node  [shape=box, style="rounded,filled", fontname="DejaVu Sans", fontsize=16, fillcolor="#ffffff", color="#555555"];
+  edge  [fontname="DejaVu Sans", fontsize=13, color="#555555"];
+
+  user [label="User\n(browser)", shape=oval, fillcolor="#fff4d6"];
+
+  subgraph cluster_client {
+    label="Next.js client (React 19)"; style="rounded,filled"; fillcolor="#eef5ff"; color="#7aa7e0"; fontsize=14;
+    chatui   [label="Chat UI\ncomponents/chat.tsx\n(useChat, AI SDK)"];
+    msg      [label="Message renderer\ncomponents/message.tsx\n(weather, document,\nsuggestion tool cards)"];
+    artifact [label="Artifact panel\nartifacts/{text,code,\nimage,sheet}"];
+    flightui [label="FlightResults\ncomponents/flight-results.tsx\n(not rendered anywhere)", color="#c0392b", style="rounded,filled,dashed", fillcolor="#fdecea"];
+  }
+
+  subgraph cluster_next {
+    label="Next.js 16 server (Vercel)"; style="rounded,filled"; fillcolor="#eefaf0"; color="#6bb27a"; fontsize=14;
+    proxy   [label="proxy.ts\nguest redirect,\nroute protection"];
+    auth    [label="Auth.js\n/api/auth/*\n(credentials + guest)"];
+    chatapi [label="POST /api/chat\napp/(chat)/api/chat/route.ts\nrate limit, persist, streamText"];
+    other   [label="/api/history  /api/vote\n/api/document  /api/suggestions\n/api/files/upload\n/api/chat/[id]/stream"];
+    tools   [label="AI tools (lib/ai/tools)\ngetWeather, createDocument,\nupdateDocument, requestSuggestions,\nsearchFlights"];
+    queries [label="Drizzle queries\nlib/db/queries.ts"];
+  }
+
+  subgraph cluster_brain {
+    label="brain-engine/ (Python FastAPI, Docker / Railway; not deployed by Vercel)"; style="rounded,filled"; fillcolor="#f6efff"; color="#a07ad0"; fontsize=14;
+    fastapi [label="FastAPI src/main.py\nGET /health\nPOST /api/search (Bearer API_KEY)"];
+    scraper [label="Playwright scraper\nsrc/scraper/flights.py\nIN MX BR TH TR + US baseline"];
+  }
+
+  gateway [label="Vercel AI Gateway\nxAI grok-2-vision-1212,\ngrok-3-mini, grok-2-1212", fillcolor="#f2f2f2"];
+  pg      [label="PostgreSQL\nUser, Chat, Message_v2, Vote_v2,\nDocument, Suggestion, Stream,\nFlightSearches, FlightPriceCache", shape=cylinder, fillcolor="#f2f2f2"];
+  redis   [label="Redis (optional)\nresumable streams\n(registration commented out)", shape=cylinder, fillcolor="#fdecea", color="#c0392b", style="filled,dashed"];
+  blob    [label="Vercel Blob\nfile uploads", shape=cylinder, fillcolor="#f2f2f2"];
+  weather [label="Open-Meteo API", fillcolor="#f2f2f2"];
+  oxy     [label="Oxylabs residential\nproxies (per country)", fillcolor="#f2f2f2"];
+  gflights[label="Google Flights", fillcolor="#f2f2f2"];
+
+  user -> chatui;
+  chatui -> proxy [label="HTTP"];
+  proxy -> auth;
+  chatui -> chatapi [label="UI message stream"];
+  chatui -> other;
+  chatui -> msg;
+  msg -> artifact;
+  msg -> flightui [style=dashed, color="#c0392b", label="no tool-searchFlights branch"];
+
+  chatapi -> gateway [label="streamText"];
+  chatapi -> tools;
+  chatapi -> queries;
+  other -> queries;
+  other -> blob;
+  other -> redis [style=dashed, color="#c0392b"];
+  queries -> pg;
+  auth -> queries;
+
+  tools -> weather [label="getWeather"];
+  tools -> fastapi [label="searchFlights\nBRAIN_ENGINE_URL\nBearer BRAIN_ENGINE_API_KEY"];
+  tools -> queries [label="artifact tools save\nDocument / Suggestion"];
+  tools -> queries [style=dashed, color="#c0392b", label="logFlightSearch /\nflight cache: never called"];
+
+  {rank=same; pg; redis; blob; gateway; weather;}
+  {rank=same; oxy; gflights;}
+  fastapi -> scraper;
+  scraper -> oxy;
+  oxy -> gflights;
+  pg -> oxy [style=invis];
+}
