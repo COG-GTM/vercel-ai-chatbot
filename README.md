@@ -44,7 +44,7 @@ dot -Tsvg architecture.dot -o architecture.svg
 - Data persistence
   - PostgreSQL (for example [Neon](https://vercel.com/marketplace/neon)) through Drizzle ORM for users, chats, messages and documents
   - [Vercel Blob](https://vercel.com/storage/blob) for file uploads
-  - Optional Redis for resumable streams
+  - Redis client for resumable streams (not active: stream registration in `POST /api/chat` is commented out, see [known gaps](docs/architecture.md#known-gaps))
 - [Auth.js](https://authjs.dev)
   - Email/password accounts and automatic guest sessions
 
@@ -81,7 +81,7 @@ You need Node.js, pnpm 9 (`packageManager` in [package.json](package.json)), Pos
 | `POSTGRES_URL` | yes | Any PostgreSQL database |
 | `AI_GATEWAY_API_KEY` | yes, outside Vercel | Needed for model responses |
 | `BLOB_READ_WRITE_TOKEN` | for file uploads | |
-| `REDIS_URL` | no | Resumable streams are off without it |
+| `REDIS_URL` | no | Creates the resumable-stream context; replay stays inactive until `POST /api/chat` registers streams |
 | `BRAIN_ENGINE_URL` | for flight search | e.g. `http://localhost:8000` |
 | `BRAIN_ENGINE_API_KEY` | for flight search | Same value as the Brain Engine's `API_KEY` |
 

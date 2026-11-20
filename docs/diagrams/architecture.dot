@@ -35,7 +35,7 @@ digraph ryoko {
 
   gateway [label="Vercel AI Gateway\nxAI grok-2-vision-1212,\ngrok-3-mini, grok-2-1212", fillcolor="#f2f2f2"];
   pg      [label="PostgreSQL\nUser, Chat, Message_v2, Vote_v2,\nDocument, Suggestion, Stream,\nFlightSearches, FlightPriceCache", shape=cylinder, fillcolor="#f2f2f2"];
-  redis   [label="Redis (optional)\nresumable streams", shape=cylinder, fillcolor="#f2f2f2"];
+  redis   [label="Redis (optional)\nresumable streams\n(registration commented out)", shape=cylinder, fillcolor="#fdecea", color="#c0392b", style="filled,dashed"];
   blob    [label="Vercel Blob\nfile uploads", shape=cylinder, fillcolor="#f2f2f2"];
   weather [label="Open-Meteo API", fillcolor="#f2f2f2"];
   oxy     [label="Oxylabs residential\nproxies (per country)", fillcolor="#f2f2f2"];
@@ -55,7 +55,7 @@ digraph ryoko {
   chatapi -> queries;
   other -> queries;
   other -> blob;
-  other -> redis;
+  other -> redis [style=dashed, color="#c0392b"];
   queries -> pg;
   auth -> queries;
 

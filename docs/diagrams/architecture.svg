@@ -152,15 +152,15 @@
 <!-- queries -->
 <g id="node11" class="node">
 <title>queries</title>
-<path fill="#ffffff" stroke="#555555" d="M1466.5,-309C1466.5,-309 1343.5,-309 1343.5,-309 1337.5,-309 1331.5,-303 1331.5,-297 1331.5,-297 1331.5,-277 1331.5,-277 1331.5,-271 1337.5,-265 1343.5,-265 1343.5,-265 1466.5,-265 1466.5,-265 1472.5,-265 1478.5,-271 1478.5,-277 1478.5,-277 1478.5,-297 1478.5,-297 1478.5,-303 1472.5,-309 1466.5,-309"/>
-<text text-anchor="middle" x="1405" y="-292.2" font-family="DejaVu Sans" font-size="16.00">Drizzle queries</text>
-<text text-anchor="middle" x="1405" y="-274.2" font-family="DejaVu Sans" font-size="16.00">lib/db/queries.ts</text>
+<path fill="#ffffff" stroke="#555555" d="M1536.5,-309C1536.5,-309 1413.5,-309 1413.5,-309 1407.5,-309 1401.5,-303 1401.5,-297 1401.5,-297 1401.5,-277 1401.5,-277 1401.5,-271 1407.5,-265 1413.5,-265 1413.5,-265 1536.5,-265 1536.5,-265 1542.5,-265 1548.5,-271 1548.5,-277 1548.5,-277 1548.5,-297 1548.5,-297 1548.5,-303 1542.5,-309 1536.5,-309"/>
+<text text-anchor="middle" x="1475" y="-292.2" font-family="DejaVu Sans" font-size="16.00">Drizzle queries</text>
+<text text-anchor="middle" x="1475" y="-274.2" font-family="DejaVu Sans" font-size="16.00">lib/db/queries.ts</text>
 </g>
 <!-- auth&#45;&gt;queries -->
 <g id="edge16" class="edge">
 <title>auth&#45;&gt;queries</title>
-<path fill="none" stroke="#555555" d="M1509.34,-432.92C1486.12,-400.67 1449.49,-349.8 1426.38,-317.7"/>
-<polygon fill="#555555" stroke="#555555" points="1428.93,-315.24 1420.25,-309.17 1423.25,-319.33 1428.93,-315.24"/>
+<path fill="none" stroke="#555555" d="M1521.37,-432.92C1511.19,-401.08 1495.19,-351.1 1484.9,-318.94"/>
+<polygon fill="#555555" stroke="#555555" points="1488.16,-317.63 1481.78,-309.17 1481.49,-319.76 1488.16,-317.63"/>
 </g>
 <!-- tools -->
 <g id="node10" class="node">
@@ -180,8 +180,8 @@
 <!-- chatapi&#45;&gt;queries -->
 <g id="edge11" class="edge">
 <title>chatapi&#45;&gt;queries</title>
-<path fill="none" stroke="#555555" d="M1024.21,-585.18C1169.64,-559.46 1390.43,-518.39 1403,-504 1426.26,-477.38 1416.35,-372.84 1409.51,-319.57"/>
-<polygon fill="#555555" stroke="#555555" points="1412.93,-318.78 1408.15,-309.33 1405.99,-319.71 1412.93,-318.78"/>
+<path fill="none" stroke="#555555" d="M1024.28,-588.13C1164.57,-566.11 1375.13,-529.46 1403,-504 1430.41,-478.96 1403.11,-452.41 1427,-424 1442.99,-404.99 1463.94,-420.13 1477,-399 1491.65,-375.29 1489.11,-342.95 1484.13,-319.3"/>
+<polygon fill="#555555" stroke="#555555" points="1487.5,-318.35 1481.8,-309.42 1480.69,-319.96 1487.5,-318.35"/>
 </g>
 <!-- gateway -->
 <g id="node14" class="node">
@@ -201,52 +201,53 @@
 <!-- other&#45;&gt;queries -->
 <g id="edge12" class="edge">
 <title>other&#45;&gt;queries</title>
-<path fill="none" stroke="#555555" d="M1378.8,-423.93C1388.17,-416.93 1396.48,-408.7 1403,-399 1411.43,-386.44 1410.28,-347.56 1408.12,-319.35"/>
-<polygon fill="#555555" stroke="#555555" points="1411.59,-318.81 1407.26,-309.14 1404.61,-319.4 1411.59,-318.81"/>
+<path fill="none" stroke="#555555" d="M1392.23,-428.66C1430.89,-417.75 1464.08,-406.57 1470,-399 1479.33,-387.08 1479.1,-348.05 1477.52,-319.64"/>
+<polygon fill="#555555" stroke="#555555" points="1481,-319.1 1476.87,-309.35 1474.01,-319.55 1481,-319.1"/>
 </g>
 <!-- redis -->
 <g id="node16" class="node">
 <title>redis</title>
-<path fill="#f2f2f2" stroke="#555555" d="M1092,-174.96C1092,-178.02 1053.9,-180.5 1007,-180.5 960.1,-180.5 922,-178.02 922,-174.96 922,-174.96 922,-125.04 922,-125.04 922,-121.98 960.1,-119.5 1007,-119.5 1053.9,-119.5 1092,-121.98 1092,-125.04 1092,-125.04 1092,-174.96 1092,-174.96"/>
-<path fill="none" stroke="#555555" d="M1092,-174.96C1092,-171.9 1053.9,-169.41 1007,-169.41 960.1,-169.41 922,-171.9 922,-174.96"/>
-<text text-anchor="middle" x="1007" y="-155.2" font-family="DejaVu Sans" font-size="16.00">Redis (optional)</text>
-<text text-anchor="middle" x="1007" y="-137.2" font-family="DejaVu Sans" font-size="16.00">resumable streams</text>
+<path fill="#fdecea" stroke="#c0392b" stroke-dasharray="5,2" d="M1176,-184.98C1176,-189.27 1119.08,-192.75 1049,-192.75 978.92,-192.75 922,-189.27 922,-184.98 922,-184.98 922,-115.02 922,-115.02 922,-110.73 978.92,-107.25 1049,-107.25 1119.08,-107.25 1176,-110.73 1176,-115.02 1176,-115.02 1176,-184.98 1176,-184.98"/>
+<path fill="none" stroke="#c0392b" stroke-dasharray="5,2" d="M1176,-184.98C1176,-180.69 1119.08,-177.2 1049,-177.2 978.92,-177.2 922,-180.69 922,-184.98"/>
+<text text-anchor="middle" x="1049" y="-164.2" font-family="DejaVu Sans" font-size="16.00">Redis (optional)</text>
+<text text-anchor="middle" x="1049" y="-146.2" font-family="DejaVu Sans" font-size="16.00">resumable streams</text>
+<text text-anchor="middle" x="1049" y="-128.2" font-family="DejaVu Sans" font-size="16.00">(registration commented out)</text>
 </g>
 <!-- other&#45;&gt;redis -->
 <g id="edge14" class="edge">
 <title>other&#45;&gt;redis</title>
-<path fill="none" stroke="#555555" d="M1115.74,-426.69C1063.84,-412.9 1016.95,-400.19 1016,-399 968.49,-339.3 982.4,-243.52 995.5,-190.15"/>
-<polygon fill="#555555" stroke="#555555" points="998.91,-190.93 998,-180.38 992.13,-189.2 998.91,-190.93"/>
+<path fill="none" stroke="#c0392b" stroke-dasharray="5,2" d="M1115.94,-428.09C1103.05,-420.27 1091.34,-410.71 1082,-399 1037.72,-343.5 1036.53,-257.76 1041.46,-203.03"/>
+<polygon fill="#c0392b" stroke="#c0392b" points="1044.97,-203.15 1042.48,-192.85 1038,-202.45 1044.97,-203.15"/>
 </g>
 <!-- blob -->
 <g id="node17" class="node">
 <title>blob</title>
-<path fill="#f2f2f2" stroke="#555555" d="M1224,-174.96C1224,-178.02 1199.35,-180.5 1169,-180.5 1138.65,-180.5 1114,-178.02 1114,-174.96 1114,-174.96 1114,-125.04 1114,-125.04 1114,-121.98 1138.65,-119.5 1169,-119.5 1199.35,-119.5 1224,-121.98 1224,-125.04 1224,-125.04 1224,-174.96 1224,-174.96"/>
-<path fill="none" stroke="#555555" d="M1224,-174.96C1224,-171.9 1199.35,-169.41 1169,-169.41 1138.65,-169.41 1114,-171.9 1114,-174.96"/>
-<text text-anchor="middle" x="1169" y="-155.2" font-family="DejaVu Sans" font-size="16.00">Vercel Blob</text>
-<text text-anchor="middle" x="1169" y="-137.2" font-family="DejaVu Sans" font-size="16.00">file uploads</text>
+<path fill="#f2f2f2" stroke="#555555" d="M1308,-174.96C1308,-178.02 1283.35,-180.5 1253,-180.5 1222.65,-180.5 1198,-178.02 1198,-174.96 1198,-174.96 1198,-125.04 1198,-125.04 1198,-121.98 1222.65,-119.5 1253,-119.5 1283.35,-119.5 1308,-121.98 1308,-125.04 1308,-125.04 1308,-174.96 1308,-174.96"/>
+<path fill="none" stroke="#555555" d="M1308,-174.96C1308,-171.9 1283.35,-169.41 1253,-169.41 1222.65,-169.41 1198,-171.9 1198,-174.96"/>
+<text text-anchor="middle" x="1253" y="-155.2" font-family="DejaVu Sans" font-size="16.00">Vercel Blob</text>
+<text text-anchor="middle" x="1253" y="-137.2" font-family="DejaVu Sans" font-size="16.00">file uploads</text>
 </g>
 <!-- other&#45;&gt;blob -->
 <g id="edge13" class="edge">
 <title>other&#45;&gt;blob</title>
-<path fill="none" stroke="#555555" d="M1115.79,-425.77C1069.33,-412.94 1028.67,-401.2 1027,-399 999.13,-362.18 1086.86,-247.79 1136.82,-188.1"/>
-<polygon fill="#555555" stroke="#555555" points="1139.54,-190.3 1143.31,-180.4 1134.19,-185.79 1139.54,-190.3"/>
+<path fill="none" stroke="#555555" d="M1118.11,-423.83C1108.8,-416.87 1100.54,-408.66 1094,-399 1083.53,-383.54 1087.97,-374.67 1094,-357 1117.24,-288.85 1173.17,-225.71 1212.08,-187.76"/>
+<polygon fill="#555555" stroke="#555555" points="1214.83,-189.97 1219.62,-180.51 1209.98,-184.92 1214.83,-189.97"/>
 </g>
 <!-- tools&#45;&gt;queries -->
 <g id="edge19" class="edge">
 <title>tools&#45;&gt;queries</title>
-<path fill="none" stroke="#555555" d="M1094.29,-426.35C1097.89,-425.56 1101.47,-424.77 1105,-424 1156.1,-412.82 1178.4,-430.7 1220,-399 1236.76,-386.23 1226.5,-371.28 1242,-357 1264.34,-336.42 1293.73,-321.45 1321.4,-310.82"/>
-<polygon fill="#555555" stroke="#555555" points="1322.93,-313.98 1331.09,-307.24 1320.5,-307.42 1322.93,-313.98"/>
-<text text-anchor="middle" x="1320" y="-381.6" font-family="DejaVu Sans" font-size="13.00">artifact tools save</text>
-<text text-anchor="middle" x="1320" y="-367.6" font-family="DejaVu Sans" font-size="13.00">Document / Suggestion</text>
+<path fill="none" stroke="#555555" d="M1094.21,-425.97C1097.84,-425.29 1101.44,-424.64 1105,-424 1145.19,-416.82 1253.59,-422.47 1287,-399 1304.24,-386.89 1293.45,-371.23 1309,-357 1332.27,-335.7 1363.04,-320.47 1391.77,-309.83"/>
+<polygon fill="#555555" stroke="#555555" points="1393.17,-313.04 1401.41,-306.39 1390.82,-306.45 1393.17,-313.04"/>
+<text text-anchor="middle" x="1387" y="-381.6" font-family="DejaVu Sans" font-size="13.00">artifact tools save</text>
+<text text-anchor="middle" x="1387" y="-367.6" font-family="DejaVu Sans" font-size="13.00">Document / Suggestion</text>
 </g>
 <!-- tools&#45;&gt;queries -->
 <g id="edge20" class="edge">
 <title>tools&#45;&gt;queries</title>
-<path fill="none" stroke="#c0392b" stroke-dasharray="5,2" d="M961.32,-423.86C983.09,-400.84 1013.44,-373.17 1046,-357 1133.41,-313.6 1245.34,-297.44 1320.79,-291.46"/>
-<polygon fill="#c0392b" stroke="#c0392b" points="1321.48,-294.92 1331.19,-290.68 1320.95,-287.94 1321.48,-294.92"/>
-<text text-anchor="middle" x="1130.5" y="-381.6" font-family="DejaVu Sans" font-size="13.00">logFlightSearch /</text>
-<text text-anchor="middle" x="1130.5" y="-367.6" font-family="DejaVu Sans" font-size="13.00">flight cache: never called</text>
+<path fill="none" stroke="#c0392b" stroke-dasharray="5,2" d="M984.72,-423.9C1020.14,-401.19 1067.52,-373.82 1113,-357 1204.84,-323.03 1316.25,-305.01 1391.01,-296.02"/>
+<polygon fill="#c0392b" stroke="#c0392b" points="1391.79,-299.45 1401.31,-294.81 1390.97,-292.5 1391.79,-299.45"/>
+<text text-anchor="middle" x="1197.5" y="-381.6" font-family="DejaVu Sans" font-size="13.00">logFlightSearch /</text>
+<text text-anchor="middle" x="1197.5" y="-367.6" font-family="DejaVu Sans" font-size="13.00">flight cache: never called</text>
 </g>
 <!-- fastapi -->
 <g id="node12" class="node">
@@ -274,25 +275,25 @@
 <!-- tools&#45;&gt;weather -->
 <g id="edge17" class="edge">
 <title>tools&#45;&gt;weather</title>
-<path fill="none" stroke="#555555" d="M913.37,-423.87C905.31,-401.95 895.3,-374.06 887,-349 866.88,-288.22 845.69,-216.09 834.67,-177.88"/>
-<polygon fill="#555555" stroke="#555555" points="837.97,-176.69 831.85,-168.04 831.24,-178.62 837.97,-176.69"/>
-<text text-anchor="middle" x="926" y="-283.6" font-family="DejaVu Sans" font-size="13.00">getWeather</text>
+<path fill="none" stroke="#555555" d="M915.31,-423.8C894.51,-359.53 853.67,-233.37 835.76,-178.07"/>
+<polygon fill="#555555" stroke="#555555" points="839.01,-176.73 832.6,-168.29 832.35,-178.88 839.01,-176.73"/>
+<text text-anchor="middle" x="929" y="-283.6" font-family="DejaVu Sans" font-size="13.00">getWeather</text>
 </g>
 <!-- pg -->
 <g id="node15" class="node">
 <title>pg</title>
-<path fill="#f2f2f2" stroke="#555555" d="M1540,-195C1540,-200.52 1475.01,-205 1395,-205 1314.99,-205 1250,-200.52 1250,-195 1250,-195 1250,-105 1250,-105 1250,-99.48 1314.99,-95 1395,-95 1475.01,-95 1540,-99.48 1540,-105 1540,-105 1540,-195 1540,-195"/>
-<path fill="none" stroke="#555555" d="M1540,-195C1540,-189.48 1475.01,-185 1395,-185 1314.99,-185 1250,-189.48 1250,-195"/>
-<text text-anchor="middle" x="1395" y="-173.2" font-family="DejaVu Sans" font-size="16.00">PostgreSQL</text>
-<text text-anchor="middle" x="1395" y="-155.2" font-family="DejaVu Sans" font-size="16.00">User, Chat, Message_v2, Vote_v2,</text>
-<text text-anchor="middle" x="1395" y="-137.2" font-family="DejaVu Sans" font-size="16.00">Document, Suggestion, Stream,</text>
-<text text-anchor="middle" x="1395" y="-119.2" font-family="DejaVu Sans" font-size="16.00">FlightSearches, FlightPriceCache</text>
+<path fill="#f2f2f2" stroke="#555555" d="M1620,-195C1620,-200.52 1555.01,-205 1475,-205 1394.99,-205 1330,-200.52 1330,-195 1330,-195 1330,-105 1330,-105 1330,-99.48 1394.99,-95 1475,-95 1555.01,-95 1620,-99.48 1620,-105 1620,-105 1620,-195 1620,-195"/>
+<path fill="none" stroke="#555555" d="M1620,-195C1620,-189.48 1555.01,-185 1475,-185 1394.99,-185 1330,-189.48 1330,-195"/>
+<text text-anchor="middle" x="1475" y="-173.2" font-family="DejaVu Sans" font-size="16.00">PostgreSQL</text>
+<text text-anchor="middle" x="1475" y="-155.2" font-family="DejaVu Sans" font-size="16.00">User, Chat, Message_v2, Vote_v2,</text>
+<text text-anchor="middle" x="1475" y="-137.2" font-family="DejaVu Sans" font-size="16.00">Document, Suggestion, Stream,</text>
+<text text-anchor="middle" x="1475" y="-119.2" font-family="DejaVu Sans" font-size="16.00">FlightSearches, FlightPriceCache</text>
 </g>
 <!-- queries&#45;&gt;pg -->
 <g id="edge15" class="edge">
 <title>queries&#45;&gt;pg</title>
-<path fill="none" stroke="#555555" d="M1403.44,-264.91C1402.44,-251.45 1401.09,-233.23 1399.76,-215.32"/>
-<polygon fill="#555555" stroke="#555555" points="1403.24,-214.85 1399.01,-205.13 1396.26,-215.36 1403.24,-214.85"/>
+<path fill="none" stroke="#555555" d="M1475,-264.91C1475,-251.45 1475,-233.23 1475,-215.32"/>
+<polygon fill="#555555" stroke="#555555" points="1478.5,-215.13 1475,-205.13 1471.5,-215.13 1478.5,-215.13"/>
 </g>
 <!-- scraper -->
 <g id="node13" class="node">
@@ -311,28 +312,28 @@
 <!-- oxy -->
 <g id="node19" class="node">
 <title>oxy</title>
-<path fill="#f2f2f2" stroke="#555555" d="M1174,-44C1174,-44 1012,-44 1012,-44 1006,-44 1000,-38 1000,-32 1000,-32 1000,-12 1000,-12 1000,-6 1006,0 1012,0 1012,0 1174,0 1174,0 1180,0 1186,-6 1186,-12 1186,-12 1186,-32 1186,-32 1186,-38 1180,-44 1174,-44"/>
-<text text-anchor="middle" x="1093" y="-27.2" font-family="DejaVu Sans" font-size="16.00">Oxylabs residential</text>
-<text text-anchor="middle" x="1093" y="-9.2" font-family="DejaVu Sans" font-size="16.00">proxies (per country)</text>
+<path fill="#f2f2f2" stroke="#555555" d="M1224,-44C1224,-44 1062,-44 1062,-44 1056,-44 1050,-38 1050,-32 1050,-32 1050,-12 1050,-12 1050,-6 1056,0 1062,0 1062,0 1224,0 1224,0 1230,0 1236,-6 1236,-12 1236,-12 1236,-32 1236,-32 1236,-38 1230,-44 1224,-44"/>
+<text text-anchor="middle" x="1143" y="-27.2" font-family="DejaVu Sans" font-size="16.00">Oxylabs residential</text>
+<text text-anchor="middle" x="1143" y="-9.2" font-family="DejaVu Sans" font-size="16.00">proxies (per country)</text>
 </g>
 <!-- scraper&#45;&gt;oxy -->
 <g id="edge22" class="edge">
 <title>scraper&#45;&gt;oxy</title>
-<path fill="none" stroke="#555555" d="M671.68,-118.91C694.35,-110.44 719.48,-101.73 743,-95 824.86,-71.59 919.55,-52.58 989.78,-39.99"/>
-<polygon fill="#555555" stroke="#555555" points="990.73,-43.38 999.96,-38.18 989.5,-36.49 990.73,-43.38"/>
+<path fill="none" stroke="#555555" d="M670.45,-118.96C693.41,-110.35 719.01,-101.54 743,-95 842.23,-67.95 958.14,-48.36 1039.57,-36.5"/>
+<polygon fill="#555555" stroke="#555555" points="1040.42,-39.92 1049.82,-35.03 1039.43,-32.99 1040.42,-39.92"/>
 </g>
 <!-- pg&#45;&gt;oxy -->
 <!-- gflights -->
 <g id="node20" class="node">
 <title>gflights</title>
-<path fill="#f2f2f2" stroke="#555555" d="M1350,-40C1350,-40 1242,-40 1242,-40 1236,-40 1230,-34 1230,-28 1230,-28 1230,-16 1230,-16 1230,-10 1236,-4 1242,-4 1242,-4 1350,-4 1350,-4 1356,-4 1362,-10 1362,-16 1362,-16 1362,-28 1362,-28 1362,-34 1356,-40 1350,-40"/>
-<text text-anchor="middle" x="1296" y="-18.2" font-family="DejaVu Sans" font-size="16.00">Google Flights</text>
+<path fill="#f2f2f2" stroke="#555555" d="M1400,-40C1400,-40 1292,-40 1292,-40 1286,-40 1280,-34 1280,-28 1280,-28 1280,-16 1280,-16 1280,-10 1286,-4 1292,-4 1292,-4 1400,-4 1400,-4 1406,-4 1412,-10 1412,-16 1412,-16 1412,-28 1412,-28 1412,-34 1406,-40 1400,-40"/>
+<text text-anchor="middle" x="1346" y="-18.2" font-family="DejaVu Sans" font-size="16.00">Google Flights</text>
 </g>
 <!-- oxy&#45;&gt;gflights -->
 <g id="edge23" class="edge">
 <title>oxy&#45;&gt;gflights</title>
-<path fill="none" stroke="#555555" d="M1186.17,-22C1197.34,-22 1208.51,-22 1219.68,-22"/>
-<polygon fill="#555555" stroke="#555555" points="1219.93,-25.5 1229.93,-22 1219.93,-18.5 1219.93,-25.5"/>
+<path fill="none" stroke="#555555" d="M1236.17,-22C1247.34,-22 1258.51,-22 1269.68,-22"/>
+<polygon fill="#555555" stroke="#555555" points="1269.93,-25.5 1279.93,-22 1269.93,-18.5 1269.93,-25.5"/>
 </g>
 </g>
 </svg>
