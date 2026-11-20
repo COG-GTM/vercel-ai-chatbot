@@ -37,7 +37,7 @@ Request → FastAPI → Playwright Browsers (concurrent)
    cp .env.example .env
    ```
 
-2. Fill in your credentials in `.env`
+2. Fill in your credentials in `.env`. Delete the `SEARCH_COUNTRIES` line or write it as a JSON list (`SEARCH_COUNTRIES=["in","mx","br","th","tr"]`); the comma-separated value in `.env.example` makes the service fail at startup.
 
 3. Install dependencies:
    ```bash
@@ -113,3 +113,4 @@ curl -X POST http://localhost:8000/api/search \
 | OXYLABS_USERNAME | Yes | Oxylabs proxy username |
 | OXYLABS_PASSWORD | Yes | Oxylabs proxy password |
 | DEBUG | No | Enable debug mode (default: false) |
+| SEARCH_COUNTRIES | No | JSON list of country codes to search (default: `["in","mx","br","th","tr"]`) |
